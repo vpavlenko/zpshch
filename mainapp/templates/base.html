@@ -1,0 +1,21 @@
+    <html>
+    <head>
+        <title>ЗПШЧ: {% block title %}без название{% endblock %}</title>
+        <meta charset="utf8">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">
+        <script src="{{ STATIC_URL }}js/jquery-1.9.1.min.js"></script>
+        <script src="{{ STATIC_URL }}js/main.js"></script>
+    </head>
+
+    <body>
+        {% block navigation %}
+            {% for board in boards %}
+                <a href="{% url 'board_url' board.shortcut %}">{{ board.title }} (/{{ board.shortcut }}/)</a> 
+                {% if not forloop.last %}|{% endif %}
+            {% endfor %}
+        {% endblock %}
+        {% block body %}
+            Здесь ничего нет
+        {% endblock %}
+    </body>
+</html>

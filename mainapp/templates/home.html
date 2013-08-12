@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}главная{% endblock %}
+
+{% block body %}
+        <h2>Добро пожаловать на ЗПШЧ</h2>
+
+        <ul>
+        {% for board in boards %}
+            <li><a href="/{{ board.shortcut }}/">{{ board.title }}</a></li>
+        {% endfor %}
+        </ul>
+{% endblock %}

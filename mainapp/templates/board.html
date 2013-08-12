@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% load utils %}
+
+{% block title %}{{ board.title }}{% endblock %}
+
+{% block body %}
+        <h2>{{ board.title }}</h2>
+
+        <div class="threads">
+        {% for thread in threads %}
+            <div class="thread" data-id="{{ thread.id }}">
+                <div class="ch-block">
+                    <span class="id">
+                        {{ thread.id|leading_zeros:6 }}
+                    </span>
+                    <span class="rating">
+                        <span class="rating-plus" data-id="{{ thread.id }}">+</span>
+                        <span class="rating-value" data-id="{{ thread.id }}">{{ thread.rating }}</span>
+                        <span class="rating-minus" data-id="{{ thread.id }}">&minus;</span>
+                    </span>
+                    <span class="timestamp">
+                        {{ thread.timestamp }}                    
+                    </span>
+
+                    <div class="ch-block-header">
+                        <h3 class="title">{{ thread.title }}</h3>
+                        <span class="author">автор: {{ thread.author }}</span>
+                    </div>
+
+                    <div class="text">
+                    {{ thread.text }}
+                    </div>
+                </div>
+                <div class="comments">
+                {% for comment in thread.thread_set.all %}
+                    <div class="comment ch-block">
+                        <span class="id">
+                            {{ comment.id|leading_zeros:6 }}
+                        </span>
+                        <span class="rating">
+                            <span class="rating-plus" data-id="{{ comment.id }}">+</span>
+                            <span class="rating-value" data-id="{{ comment.id }}">{{ comment.rating }}</span>
+                            <span class="rating-minus" data-id="{{ comment.id }}">&minus;</span>
+                        </span>
+                        <span class="timestamp">
+                            {{ comment.timestamp }}                    
+                        </span>
+
+                        <div class="ch-block-header">   
+                            <span class="author">автор: {{ comment.author }}</span>
+                        </div>
+
+                        <div class="text">
+                        {{ comment.text }}
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+                <div class="response-div comment ch-block">
+                    <form>
+                        <label for="author">Автор:</label>
+                        <input type="text" name="author">
+                        <br>
+                        <label for="text">Комментарий:</label>
+                        <br>
+                        <textarea name="text"></textarea>
+                        <br>
+                        <input type="button" value="Ответить">
+                    </form>
+                </div>
+            </div>
+            {% if not forloop.last %}
+            <hr>
+            {% endif %}
+        {% endfor %}
+        </div>
+{% endblock %}

@@ -1,0 +1,65 @@
+.ch-block {
+    border: 1px solid darkgray;
+    width: 60%;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    margin: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.thread {
+    
+}
+
+.comment {
+    margin-left: 3em;
+}
+
+.title {
+    display: inline;
+}
+
+.ch-block-header {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.ch-block .text {
+    clear: both;
+}
+
+.rating {
+    
+}
+
+.response-div {
+    padding-top: 1em;
+    
+}
+
+.rating-plus, .rating-minus, .response-span {
+    color: blue;
+    border-bottom: 1px dotted blue;
+}
+
+.id {
+    font-weight: bold;
+    margin-right: 2em;
+}
+
+.timestamp {
+    float: right;
+}
+
+.author {
+    float: right;
+    color: lightblue;
+}
+
+.title {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+hr {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
